@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import Body, FastAPI
 
 app = FastAPI()
 
@@ -42,9 +42,31 @@ CONTACTS = [
 
 
 # FECTCH ALL BOOKS
-
 @app.get('/contacts')
 async def list_all_contacts():
     return CONTACTS
 
 
+# FETCH A CONTACT
+@app.get('/contact/{contact_id}')
+async def get_contact_by_id(contact_id: int):
+    for contact in CONTACTS:
+        if contact.get('id') == contact_id:
+            return contact
+
+
+# SEARCH CONTACT BY NAME
+@app.get('/contact/search/')
+async def search_contact_by_name(name: str):
+    contacts_to_return = []
+    for i in range(len(CONTACTS)):
+        if name.casefold() in CONTACTS[i].get("name").casefold():
+            contacts_to_return.append(CONTACTS[i])
+    return contacts_to_return
+
+
+# CREATE NEW CONTACT
+@app.post('/contact/create')
+async def create_new_contact(new_contact=Body()):
+    CONTACTS.append(new_contact)
+    return {"message": "Contact saved successfully"}
