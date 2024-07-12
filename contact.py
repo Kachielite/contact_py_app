@@ -70,3 +70,23 @@ async def search_contact_by_name(name: str):
 async def create_new_contact(new_contact=Body()):
     CONTACTS.append(new_contact)
     return {"message": "Contact saved successfully"}
+
+
+# UPDATE CONTACT
+@app.put('/contact/update/{contact_id}')
+async def update_contact(contact_id: int, contact_to_update=Body()):
+    for i in range(len(CONTACTS)):
+        if CONTACTS[i].get('id') == contact_id:
+            CONTACTS[i] = contact_to_update
+    return {"message": "Contact updated successfully"}
+
+
+# DELETE CONTACT
+@app.delete('/contact/delete/{contact_id}')
+async def delete_contact_by_id(contact_id: int):
+    for i in range(len(CONTACTS)):
+        if CONTACTS[i].get('id') == contact_id:
+            CONTACTS.pop(i)
+        break
+    return {"message": "Contact deleted successfully"}
+
