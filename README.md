@@ -116,6 +116,10 @@ CONTACTS = [
     - Open your browser and go to `http://127.0.0.1:8000`
     - You can also view the interactive API documentation at `http://127.0.0.1:8000/docs`
 
+## Deployed Application
+
+You can access the deployed API and view the Swagger UI documentation at [https://contact-py-app.onrender.com/docs](https://contact-py-app.onrender.com/docs).
+
 ## Conclusion
 
 This project serves as a learning tool for FastAPI, providing a basic implementation of CRUD operations in a contact management system. Feel free to expand and modify the project to explore more features and functionalities of FastAPI.
