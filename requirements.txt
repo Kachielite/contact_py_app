@@ -1,2 +1,4 @@
-fastapi
+fastapi~=0.111.0
 uvicorn
+pydantic~=2.8.2
+starlette~=0.37.2
