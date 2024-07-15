@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eebb4cbd-dc09-4632-8084-72c43919c9ac" name="Changes" comment="added upate and delete contact endpoint">
-      <change afterPath="$PROJECT_DIR$/ContactV2/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ContactV2/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContactV2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ContactV2/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
