@@ -1,0 +1,47 @@
+Index: requirements.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>fastapi~=0.111.0\nuvicorn\npydantic~=2.8.2\nstarlette~=0.37.2
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/requirements.txt b/requirements.txt
+--- a/requirements.txt	
++++ b/requirements.txt	
+@@ -1,4 +1,5 @@
+ fastapi~=0.111.0
+ uvicorn
+ pydantic~=2.8.2
+-starlette~=0.37.2
+\ No newline at end of file
++starlette~=0.37.2
++SQLAlchemy~=2.0.31
+\ No newline at end of file
+Index: ContactV2/database.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ContactV2/database.py b/ContactV2/database.py
+new file mode 100644
+--- /dev/null	
++++ b/ContactV2/database.py	
+@@ -0,0 +1,16 @@
++from sqlalchemy import create_engine
++from sqlalchemy.ext.declarative import declarative_base
++from sqlalchemy.orm import sessionmaker
++
++
++# DATABASE_URL
++SQLALCHEMY_DATABASE_URL = 'sqlite:///./contact.db'
++
++# Create engine
++engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread': False})
++
++# Session
++SessionLocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
++
++# Database Object
++Base = declarative_base()
+diff --git a/ContactV2/__init__.py b/ContactV2/__init__.py
+new file mode 100644
